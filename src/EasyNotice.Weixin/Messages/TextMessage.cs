@@ -1,4 +1,6 @@
-﻿using EasyNotice.Core;
+﻿using System.Collections.Generic;
+using System.Linq;
+using EasyNotice.Core;
 
 namespace EasyNotice.Weixin
 {
@@ -27,7 +29,7 @@ namespace EasyNotice.Weixin
 
                 if (atUser.IsAtAll)
                 {
-                    text.mentioned_list = new string[] { "@all" };
+                    text.mentioned_list = text.mentioned_list != null ? new[] { "@all" }.Concat(text.mentioned_list).ToArray() : new[] { "@all" };
                 }
             }
         }
