@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static EasyNoticeOptions UseDingTalk(
             this EasyNoticeOptions options,
-            Action<DingtalkOptions> configure
+            Action<DingtalkOptions, IServiceProvider> configure
             )
         {
             if (configure == null)

@@ -5,9 +5,9 @@ namespace EasyNotice.Feishu
 {
     public class FeishuOptionsExtension : IEasyNoticeOptionsExtension
     {
-        private readonly Action<FeishuOptions> configure;
+        private readonly Action<FeishuOptions, IServiceProvider> configure;
 
-        public FeishuOptionsExtension(Action<FeishuOptions> configure)
+        public FeishuOptionsExtension(Action<FeishuOptions, IServiceProvider> configure)
         {
             this.configure = configure;
         }

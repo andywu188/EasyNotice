@@ -124,7 +124,7 @@ namespace EasyNotice.Dingtalk
                     }
                     else
                     {
-                        return new EasyNoticeSendResponse() { ErrCode = dingtalkResponse.ErrCode, ErrMsg = !string.IsNullOrEmpty(dingtalkResponse.Description) ? $"{dingtalkResponse.Description}，{dingtalkResponse.Solution}" : dingtalkResponse.ErrMsg };
+                        return new EasyNoticeSendResponse() { ErrCode = dingtalkResponse.ErrCode, ErrMsg = !string.IsNullOrEmpty(dingtalkResponse.Description) ? $"{dingtalkResponse.Description}，{dingtalkResponse.Solution}".TrimEnd('，') : dingtalkResponse.ErrMsg };
                     }
                 }, message.title, _noticeOptions.IntervalSeconds);
             }

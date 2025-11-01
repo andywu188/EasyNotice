@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static EasyNoticeOptions UseFeishu(
             this EasyNoticeOptions options,
-            Action<FeishuOptions> configure
+            Action<FeishuOptions, IServiceProvider> configure
             )
         {
             if (configure == null)

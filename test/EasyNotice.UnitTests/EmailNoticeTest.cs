@@ -17,7 +17,7 @@ namespace EasyNotice.UnitTests
             services.AddEasyNotice(config =>
             {
                 config.IntervalSeconds = 10;//同一标题的消息，10秒内只能发一条，避免短时间内大量发送重复消息
-                config.UseEmail(option =>
+                config.UseEmail((option, serviceProvider) =>
                 {
                     option.Host = "smtp.qq.com";
                     option.Port = 465;

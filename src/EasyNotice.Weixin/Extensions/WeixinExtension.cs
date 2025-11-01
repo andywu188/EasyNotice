@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static EasyNoticeOptions UseWeixin(
             this EasyNoticeOptions options,
-            Action<WeixinOptions> configure
+            Action<WeixinOptions, IServiceProvider> configure
             )
         {
             if (configure == null)

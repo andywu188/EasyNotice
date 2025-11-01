@@ -20,21 +20,21 @@ namespace Microsoft.Extensions.DependencyInjection
                 var mailOptions = baseConfiguration.GetSection(EmailOptions.SectionName).Get<EmailOptions>();
                 if (mailOptions != null)
                 {
-                    config.UseEmail(x =>
+                    config.UseEmail((option, serviceProvider) =>
                     {
-                        x.Password = mailOptions.Password;
-                        x.Host = mailOptions.Host;
-                        x.FromAddress = mailOptions.FromAddress;
-                        x.FromName = mailOptions.FromName;
-                        x.Port = mailOptions.Port;
-                        x.ToAddress = mailOptions.ToAddress;
+                        option.Password = mailOptions.Password;
+                        option.Host = mailOptions.Host;
+                        option.FromAddress = mailOptions.FromAddress;
+                        option.FromName = mailOptions.FromName;
+                        option.Port = mailOptions.Port;
+                        option.ToAddress = mailOptions.ToAddress;
                     });
                 }
 
                 var dingtalkOptions = baseConfiguration.GetSection(DingtalkOptions.SectionName).Get<DingtalkOptions>();
                 if (dingtalkOptions != null)
                 {
-                    config.UseDingTalk(x =>
+                    config.UseDingTalk((x, serviceProvider) =>
                     {
                         x.Secret = dingtalkOptions.Secret;
                         x.WebHook = dingtalkOptions.WebHook;
@@ -44,19 +44,19 @@ namespace Microsoft.Extensions.DependencyInjection
                 var feishuOptions = baseConfiguration.GetSection(FeishuOptions.SectionName).Get<DingtalkOptions>();
                 if (feishuOptions != null)
                 {
-                    config.UseFeishu(x =>
+                    config.UseFeishu((option, serviceProvider) =>
                     {
-                        x.Secret = feishuOptions.Secret;
-                        x.WebHook = feishuOptions.WebHook;
+                        option.Secret = feishuOptions.Secret;
+                        option.WebHook = feishuOptions.WebHook;
                     });
                 }
 
                 var weixinOptions = baseConfiguration.GetSection(WeixinOptions.SectionName).Get<WeixinOptions>();
                 if (weixinOptions != null)
                 {
-                    config.UseWeixin(x =>
+                    config.UseWeixin((option, serviceProvider) =>
                     {
-                        x.WebHook = weixinOptions.WebHook;
+                        option.WebHook = weixinOptions.WebHook;
                     });
                 }
             });

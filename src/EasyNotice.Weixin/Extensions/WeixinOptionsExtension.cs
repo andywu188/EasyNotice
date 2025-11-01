@@ -5,9 +5,9 @@ namespace EasyNotice.Weixin
 {
     public class WeixinOptionsExtension : IEasyNoticeOptionsExtension
     {
-        private readonly Action<WeixinOptions> configure;
+        private readonly Action<WeixinOptions, IServiceProvider> configure;
 
-        public WeixinOptionsExtension(Action<WeixinOptions> configure)
+        public WeixinOptionsExtension(Action<WeixinOptions, IServiceProvider> configure)
         {
             this.configure = configure;
         }

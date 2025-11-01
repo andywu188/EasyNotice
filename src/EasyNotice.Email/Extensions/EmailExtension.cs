@@ -8,7 +8,7 @@ namespace Microsoft.Extensions.DependencyInjection
     {
         public static EasyNoticeOptions UseEmail(
             this EasyNoticeOptions options,
-            Action<EmailOptions> configure)
+            Action<EmailOptions, IServiceProvider> configure)
         {
             if (configure == null)
             {

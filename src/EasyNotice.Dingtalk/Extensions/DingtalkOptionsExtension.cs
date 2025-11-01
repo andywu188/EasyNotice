@@ -5,9 +5,9 @@ namespace EasyNotice.Dingtalk
 {
     public class DingtalkOptionsExtension : IEasyNoticeOptionsExtension
     {
-        private readonly Action<DingtalkOptions> configure;
+        private readonly Action<DingtalkOptions, IServiceProvider> configure;
 
-        public DingtalkOptionsExtension(Action<DingtalkOptions> configure)
+        public DingtalkOptionsExtension(Action<DingtalkOptions, IServiceProvider> configure)
         {
             this.configure = configure;
         }
