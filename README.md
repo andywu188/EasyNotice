@@ -74,7 +74,7 @@ public class Startup
         services.AddEasyNotice(config =>
         {
             config.IntervalSeconds = 10;//同一标题的消息，10秒内只能发一条，避免短时间内大量发送重复消息
-            config.UseEmail(option =>
+            config.UseEmail((option, serviceProvider) =>
             {
                 option.Host = "smtp.qq.com";//SMTP地址
                 option.Port = 465;//SMTP端口
@@ -138,7 +138,7 @@ public class Startup
         services.AddEasyNotice(config =>
         {
             config.IntervalSeconds = 10;//同一标题的消息，10秒内只能发一条，避免短时间内大量发送重复消息
-            config.UseDingTalk(option =>
+            config.UseDingTalk((option, serviceProvider) =>
             {
                 option.WebHook = "https://oapi.dingtalk.com/robot/send?access_token=xxxxx";//通知地址
                 option.Secret = "secret";//签名校验
@@ -194,7 +194,7 @@ public class Startup
         services.AddEasyNotice(config =>
         {
             config.IntervalSeconds = 10;//同一标题的消息，10秒内只能发一条，避免短时间内大量发送重复消息
-            config.UseFeishu(option =>
+            config.UseFeishu((option, serviceProvider) =>
             {
                 option.WebHook = "https://open.feishu.cn/open-apis/bot/v2/hook/xxxxx";//通知地址
                 option.Secret = "secret";//签名校验
@@ -250,7 +250,7 @@ public class Startup
         services.AddEasyNotice(config =>
         {
             config.IntervalSeconds = 10;//同一标题的消息，10秒内只能发一条，避免短时间内大量发送重复消息
-            config.UseWeixin(option =>
+            config.UseWeixin((option, serviceProvider) =>
             {
                 option.WebHook = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=xxxxx";//通知地址
             });
